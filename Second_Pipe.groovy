@@ -17,8 +17,6 @@ pipeline {
 		ticketNumber 		= "INFLMS26356"
 		appName				= "NG 8"
 		ReportBranchName  	= "master"  
-		ReportRepository 	= "https://code.waters.com/bitbucket/scm/infnsd/patch-testing-results.git"
-
     }
 
     stages {
