@@ -16,7 +16,18 @@ pipeline {
 				echo "Doing something.."
 				echo "End"
 				
-				echo powershell(returnStdout: true, script: 'Write-Output "PowerShell is mighty!"')
+				echo powershell(returnStdout: true, script: """ 
+				Write-Output "PowerShell is mighty!"
+				Write-Output " "
+				dir
+				Write-Output " "
+				Write-Output " "
+				Write-Output " "
+				
+				$myvar = "mika-pika-privet!!!"
+				
+				Write-Output  "$myvar"
+				""")
 				
 			}
 		}
