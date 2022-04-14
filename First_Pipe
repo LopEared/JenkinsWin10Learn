@@ -17,16 +17,11 @@ pipeline {
 				echo "End"
 				
 				echo powershell(returnStdout: true, script: """ 
-				Write-Output "PowerShell is mighty!"
-				Write-Output " "
-				dir
-				Write-Output " "
-				Write-Output " "
-				Write-Output " "
-				
-				$myvar = "mika-pika-privet!!!"
-				
-				Write-Output  "$myvar"
+					Write-Output "PowerShell is mighty!"
+					Write-Output " "
+					dir
+					Write-Output " "
+
 				""")
 				
 			}
