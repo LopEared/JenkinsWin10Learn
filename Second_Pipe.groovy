@@ -5,13 +5,15 @@ pipeline {
 	}
 	
     environment {
-        PROJECT_NAME = "Neptun"
-	    OWNER_NAME   = "Denis Astahov"
-		repository_link = 'https://code.waters.com/bitbucket/scm/infnsd/patch-testing-results.git'
+        PROJECT_NAME 		= "Neptun"
+	    OWNER_NAME   		= "Denis Astahov"
+		ReportRepository 	= 'https://code.waters.com/bitbucket/scm/infnsd/patch-testing-results.git'
 		BUILD_NUMBER        = "${env.BUILD_NUMBER}"
 		JOB_NAME            = "${env.JOB_NAME}"
 		NODE_NAME           = "${env.NODE_NAME}"
 		WORKSPACE           = "${env.WORKSPACE}"
+		ticketNumber 		= "INFLMS26356"
+		appName				= "NG 8"
     }
 
     stages {
@@ -29,24 +31,21 @@ pipeline {
 				echo "Privet ${PROJECT_NAME}"
 				echo "Owner is ${OWNER_NAME}"
 				echo "Repositoryy way is ${repository_link}"
-				
+				def myout = repository_link.substring(45,21)
 				echo "<-------START OF MY CODE------>"
 				
-				script {
-					def filename = "ad-123_file1.txt"    //filename will have the name of the file
-					def JiraId = filename.substring(1,4)     // JiraId will store the value that you could use at various stages  
-					echo ${JiraId}
-				}
+				def date = (new Date()).format("dd.MM.YYYY")
+				commitMsg = "${ticketNumber} reporting SDMS PatchTesting NG 8 ${date} Build #${BUILD_NUMBER}"
+				echo commitMsg
+				echo powershell(returnStdout: true, script:"""
+
+				$dirRepName = "$ReportRepository.Substring(45,21)" 
+				md $dirRepName
+				cd $dirRepName
+
 				
 				
-				echo powershell(returnStdout: true, script: """ 
-					Write-Output "PowerShell is mighty!"
-					Write-Output " "
-					git --version
-					Write-Output " "
 				""")
-				
-				echo "<--------END OF MY CODE------->"
 
             }
         }
