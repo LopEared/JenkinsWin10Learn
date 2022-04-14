@@ -34,13 +34,14 @@ pipeline {
 				
 				script {
 					def filename = "ad-123_file1.txt"    //filename will have the name of the file
-					def JiraId = filename.split("_")     // JiraId will store the value that you could use at various stages  
+					def JiraId = filename.substring(1,4)     // JiraId will store the value that you could use at various stages  
+					echo ${JiraId}
 				}
 				
 				
 				echo powershell(returnStdout: true, script: """ 
 					Write-Output "PowerShell is mighty!"
-					Write-Output "${JiraId} "
+					Write-Output " "
 					git --version
 					Write-Output " "
 				""")
