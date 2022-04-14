@@ -43,7 +43,7 @@ pipeline {
 
 				md ${ReportRepository}
 				cd ${ReportRepository}
-				New-Item -Path . -Name "$ReportBranchName.txt" -ItemType "file" -Value "${ReportRepository}"
+				New-Item -Path . -Name "${ReportBranchName}.txt" -ItemType "file" -Value "${ReportRepository}"
 				dir
 				
 				""")
