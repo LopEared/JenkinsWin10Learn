@@ -1,19 +1,21 @@
 #!groovy DSL
-//Hello! Michael!
+# Hello!
 
 pipeline {
-    timestamps{
-		agent any
+  
+	agent any
 
-		stages {
-			stage('My-JenkinsBuild-Steps') {
-				steps {
-					echo "Start"
-					echo "Doing something.."
-					echo "End"
-				}
+	stages {
+		timestamps{
+				stage('My-JenkinsBuild-Steps') {
+					steps {
+						echo "Start"
+						echo "Doing something.."
+						echo "End"
+					}
+			
 			}
-		
 		}
+	
 	}
 }
