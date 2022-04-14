@@ -8,7 +8,16 @@ pipeline {
 	options{
 		timestamps()
 	}
-
+	
+	environment { 
+		CC = 'clang'
+		repository_link = 'https://code.waters.com/bitbucket/scm/infnsd/patch-testing-results.git'
+		BUILD_NUMBER        = "${env.BUILD_NUMBER}"
+		JOB_NAME            = "${env.JOB_NAME}"
+		NODE_NAME           = "${env.NODE_NAME}"
+		WORKSPACE           = "${env.WORKSPACE}"
+	}
+	
 	stages {
 		stage('My-JenkinsBuild-Steps') {
 			steps {
@@ -18,15 +27,9 @@ pipeline {
 				
 				echo powershell(returnStdout: true, script: """ 
 					Write-Output "PowerShell is mighty!"
-					Write-Output " "
-					dir
-					Write-Output " "
-					
-					$myvar = "mika-pika-privet!!!"
-					
-					Write-Output  $myvar
 				""")
 				
+				echo $repository_link
 			}
 		}
 	}
