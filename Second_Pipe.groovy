@@ -30,12 +30,11 @@ pipeline {
 				echo "Owner is ${OWNER_NAME}"
 				echo "Repositoryy way is ${repository_link}"
 				echo "<-------START OF MY CODE------>"
-				powershell(returnStdout: true, script: """ 
+				echo powershell(returnStdout: true, script: """ 
 					Write-Output "PowerShell is mighty!"
 					Write-Output " "
 					git --version
 					Write-Output " "
-					$host.version
 				""")
 				echo "<--------END OF MY CODE------->"
 
