@@ -20,6 +20,9 @@ properties([
 
 def mainPipe() {
         stage("Collecting Report info") {
+			agent {
+				any
+			}
 
             def date = (new Date()).format("dd.MM.YYYY")
             commitMsg = "${ticketNumber} reporting SDMS PatchTesting NG 8 ${date} Build #${BUILD_NUMBER}"
