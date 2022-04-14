@@ -44,9 +44,7 @@ pipeline {
 				md ${ReportRepository}
 				cd ${ReportRepository}
 				New-Item -Path . -Name "{$ReportBranchName}.txt" -ItemType "file" -Value "${ReportRepository}"
-				#$Output = Get-Content "$ReportBranchName.txt"
 				dir
-				#Write-Output  $Output
 				
 				""")
 
