@@ -42,7 +42,7 @@ pipeline {
 				
 				echo "<-------START OF MY CODE------>"
 				
-				commitMsg = "${ticketNumber} reporting SDMS PatchTesting NG 8 ${date} Build #${BUILD_NUMBER}"
+				commitMsg = "${ticketNumber} reporting SDMS PatchTesting NG 8 Build #${BUILD_NUMBER}"
 				
 				echo powershell(returnStdout: true, script:"""
 
