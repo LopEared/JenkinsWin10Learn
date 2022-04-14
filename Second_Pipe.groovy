@@ -29,10 +29,11 @@ pipeline {
 				echo "Privet ${PROJECT_NAME}"
 				echo "Owner is ${OWNER_NAME}"
 				echo "Repositoryy way is ${repository_link}"
+				def myout = repository_link.substring(45,21)
 				echo "<-------START OF MY CODE------>"
 				echo powershell(returnStdout: true, script: """ 
 					Write-Output "PowerShell is mighty!"
-					Write-Output " "
+					Write-Output "${myout}"
 					git --version
 					Write-Output " "
 				""")
