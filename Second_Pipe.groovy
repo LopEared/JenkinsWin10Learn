@@ -40,7 +40,7 @@ pipeline {
 				
 				echo powershell(returnStdout: true, script: """ 
 					Write-Output "PowerShell is mighty!"
-					Write-Output " "
+					Write-Output "${JiraId} "
 					git --version
 					Write-Output " "
 				""")
