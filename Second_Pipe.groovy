@@ -29,10 +29,12 @@ pipeline {
 				echo "Privet ${PROJECT_NAME}"
 				echo "Owner is ${OWNER_NAME}"
 				echo "Repositoryy way is ${repository_link}"
-				echo "End of Stage Build..."
-				def repFolder = ${repository_link}
-				repFolder = repFolder.substring(45,21)
-				echo "Name of repository folder is:  ${repFolder}"
+				echo "<-------START OF MY CODE------>"
+				sh '''
+					echo "THIS IS THE END!"
+				'''
+				echo "<--------END OF MY CODE------->"
+
             }
         }
 
