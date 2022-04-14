@@ -29,7 +29,7 @@ pipeline {
 					Write-Output "PowerShell is mighty!"
 				""")
 				
-				echo $repository_link
+				echo ${repository_link}
 			}
 		}
 	}
