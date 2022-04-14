@@ -1,3 +1,11 @@
+#!/usr/bin/groovy
+
+import java.util.concurrent.TimeoutException
+import org.jenkinsci.plugins.workflow.steps.FlowInterruptedException
+import hudson.model.Slave.*
+import hudson.slaves.OfflineCause.SimpleOfflineCause
+import hudson.slaves.OfflineCause
+
 pipeline {
     agent any
 	options{
