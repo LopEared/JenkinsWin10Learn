@@ -2,15 +2,18 @@
 # Hello!
 
 pipeline {
-    agent any
+    timestamps{
+		agent any
 
-    stages {
-        stage('My-JenkinsBuild-Steps') {
-            steps {
-                echo "Start"
-				echo "Doing something.."
-				echo "End"
-            }
-        }
+		stages {
+			stage('My-JenkinsBuild-Steps') {
+				steps {
+					echo "Start"
+					echo "Doing something.."
+					echo "End"
+				}
+			}
+		
+		}
 	}
 }
