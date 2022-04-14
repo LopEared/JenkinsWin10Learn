@@ -21,7 +21,10 @@ pipeline {
 					Write-Output " "
 					dir
 					Write-Output " "
-
+					
+					$myvar = "mika-pika-privet!!!"
+					
+					Write-Output  $myvar
 				""")
 				
 			}
