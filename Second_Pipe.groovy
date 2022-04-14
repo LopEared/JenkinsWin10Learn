@@ -30,7 +30,7 @@ pipeline {
 				echo "Owner is ${OWNER_NAME}"
 				echo "Repositoryy way is ${repository_link}"
 				echo "End of Stage Build..."
-				def repFolder = ${repository_link}.substring(45.21)
+				def repFolder = ${repository_link}.substring(45,21)
 				echo "Name of repository folder is:  ${repFolder}"
             }
         }
