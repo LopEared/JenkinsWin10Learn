@@ -29,14 +29,22 @@ pipeline {
 				echo "Privet ${PROJECT_NAME}"
 				echo "Owner is ${OWNER_NAME}"
 				echo "Repositoryy way is ${repository_link}"
-				def myout = repository_link.substring(45,21)
+				
 				echo "<-------START OF MY CODE------>"
+				
+				script {
+					def filename = "ad-123_file1.txt"    //filename will have the name of the file
+					def JiraId = filename.split("_")     // JiraId will store the value that you could use at various stages  
+				}
+				
+				
 				echo powershell(returnStdout: true, script: """ 
 					Write-Output "PowerShell is mighty!"
-					Write-Output "${myout}"
+					Write-Output " "
 					git --version
 					Write-Output " "
 				""")
+				
 				echo "<--------END OF MY CODE------->"
 
             }
