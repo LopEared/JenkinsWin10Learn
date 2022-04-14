@@ -1,11 +1,5 @@
 #!/usr/bin/groovy
 
-import java.util.concurrent.TimeoutException
-import org.jenkinsci.plugins.workflow.steps.FlowInterruptedException
-import hudson.model.Slave.*
-import hudson.slaves.OfflineCause.SimpleOfflineCause
-import hudson.slaves.OfflineCause
-
 pipeline {
     agent any
 	options{
@@ -22,6 +16,9 @@ pipeline {
 		WORKSPACE           = "${env.WORKSPACE}"
 		ticketNumber 		= "INFLMS26356"
 		appName				= "NG 8"
+		ReportBranchName  	= "master"  
+		ReportRepository 	= "https://code.waters.com/bitbucket/scm/infnsd/patch-testing-results.git"
+
     }
 
     stages {
@@ -46,11 +43,12 @@ pipeline {
 				
 				echo powershell(returnStdout: true, script:"""
 
-				$dirRepName = "${ReportRepository}.Substring(45,21)" 
-				md $dirRepName
-				cd $dirRepName
-
-				
+				md ${ReportRepository}
+				cd ${ReportRepository}
+				New-Item -Path . -Name "{$ReportBranchName}.txt" -ItemType "file" -Value "${ReportRepository}"
+				#$Output = Get-Content "$ReportBranchName.txt"
+				dir
+				#Write-Output  $Output
 				
 				""")
 
