@@ -42,12 +42,11 @@ pipeline {
 				
 				echo "<-------START OF MY CODE------>"
 				
-				def date = (new Date()).format("dd.MM.YYYY")
 				commitMsg = "${ticketNumber} reporting SDMS PatchTesting NG 8 ${date} Build #${BUILD_NUMBER}"
-				echo commitMsg
+				
 				echo powershell(returnStdout: true, script:"""
 
-				$dirRepName = "$ReportRepository.Substring(45,21)" 
+				$dirRepName = "${ReportRepository}.Substring(45,21)" 
 				md $dirRepName
 				cd $dirRepName
 
