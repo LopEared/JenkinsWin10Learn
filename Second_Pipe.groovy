@@ -1,57 +1,44 @@
-#!/usr/bin/groovy
+pipeline {
+    agent any
+    environment {
+		PROJECT_NAME = "Neptun"
+		OWNER_NAME   = "Denis Astahov"
+		BUILD_NUMBER        = "${env.BUILD_NUMBER}"
+		JOB_NAME            = "${env.JOB_NAME}"
+		NODE_NAME           = "${env.NODE_NAME}"
+		WORKSPACE           = "${env.WORKSPACE}"
+    }
 
-import java.util.concurrent.TimeoutException
-import org.jenkinsci.plugins.workflow.steps.FlowInterruptedException
-import hudson.model.Slave.*
-import hudson.slaves.OfflineCause.SimpleOfflineCause
-import hudson.slaves.OfflineCause
-
-properties([
-    parameters([
-        
-        string(name: 'ReportRepository', defaultValue: 'https://code.waters.com/bitbucket/scm/infnsd/patch-testing-results.git', description: 'Repository to store final reports', ),
-        string(name: 'ReportBranchName', defaultValue: 'master', description: 'Repository branch to store final reports', ),
-        string(name: 'appName', defaultValue: 'NG 8', description: 'Application name', ),
-        string(name: 'appVersion', defaultValue: '8', description: 'Application version', ),
-        string(name: 'ticketNumber', defaultValue: 'INFLMS-26356', description: 'Ticket number under which the commit will be pushed into Repo', ),
-    ])
-])
-
-
-def mainPipe() {
-        stage("Collecting Report info") {
-			agent {
-				any
-			}
-
-            def date = (new Date()).format("dd.MM.YYYY")
-            commitMsg = "${ticketNumber} reporting SDMS PatchTesting NG 8 ${date} Build #${BUILD_NUMBER}"
-
-            echo powershell(returnStdout: true, script:"""
-
-            git clone -b "${ReportBranchName}" "${ReportRepository}"
-
-            cd patch-testing-results
-
-            if(!(Test-Path "${appName}")) {
-                md "${appName}"
+    stages {
+        stage('1-Build') {
+            steps {
+                echo "This is pipe build number: $BUILD_NUMBER"
+				echo "This is pipe name: $JOB_NAME"
+				echo "This is workspace place: $WORKSPACE"
             }
-
-            md "${appName}\\${date}\\${BUILD_NUMBER}"
-            dir
-            """)
         }
-             
-    }
+        stage('2-Test') {
+            steps {
+                echo "Start of Stage Test..."
+				echo "Testing......."
+				echo "Privet ${PROJECT_NAME}"
+				echo "Owner is ${OWNER_NAME}"
+				echo "End of Stage Build..."
+				echo "<---------------Start of my code------------------>"
+				
+				echo powershell(returnStdout: true, script:"""
+					Write-Output "Hello, Mike! PowerShell is big POWER!!!"
+				
+				""")
+				
+				echo "<----------------End of my code------------------->"
+            }
+        }
 
-timestamps {
-    try {
-        mainPipe()
-    }
-    catch(FlowInterruptedException interruptEx){
-      throw interruptEx
-    }
-    finally {
-        echo "THis is the END"
-    }
+        stage('4-Celebrate') {
+            steps {
+                echo "CONGRATULYACIYA!"
+            }
+        }	
+	}
 }
