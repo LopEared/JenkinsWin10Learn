@@ -24,10 +24,18 @@ pipeline {
 				echo "Privet ${PROJECT_NAME}"
 				echo "Owner is ${OWNER_NAME}"
 				echo "End of Stage Build..."
+				echo 
+				echo OWNER_NAME
+				echo
 				echo "<---------------Start of my code------------------>"
 				
 				echo powershell(returnStdout: true, script:"""
 					Write-Output "Hello, Mike! PowerShell is big POWER!!!"
+					
+					
+					
+					
+					
 				
 				""")
 				
