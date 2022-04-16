@@ -34,8 +34,9 @@ pipeline {
 					Write-Output "Hello, Mike! PowerShell is big POWER!!!"
 					
 					\$myvar = "mika-pika"
-					\$my_sec_var = "$repository_link"	
-					\$my_thi_var =  "\$my_sec_var".Substring(45,21) 
+					\$my_sec_var 	= "$repository_link"	
+					\$my_thi_var 	= "\$my_sec_var".Substring(45,21) 
+					\$name_folder	= $repository_link".Substring(45,21)
 					Write-Output "$OWNER_NAME"
 					Write-Output \$myvar
 					Write-Output "   "
@@ -46,6 +47,13 @@ pipeline {
 					Write-Output "\$my_thi_var"
 					Write-Output "   "
 					Write-Output "$repository_link".Substring(45,21)
+					Write-Output "   "
+					pwd
+					Write-Output "   "
+					md "\$name_folder"
+					cd "\$name_folder"
+					pwd
+					Write-Output "   "
 					
 					
 				""")
