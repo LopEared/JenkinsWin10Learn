@@ -7,6 +7,7 @@ pipeline {
 		JOB_NAME            = "${env.JOB_NAME}"
 		NODE_NAME           = "${env.NODE_NAME}"
 		WORKSPACE           = "${env.WORKSPACE}"
+		repository_link 	= "https://code.waters.com/bitbucket/scm/infnsd/patch-testing-results.git"
     }
 
     stages {
@@ -33,12 +34,15 @@ pipeline {
 					Write-Output "Hello, Mike! PowerShell is big POWER!!!"
 					
 					\$myvar = "mika-pika"
-									
+					\$my_sec_var = "$repository_link"				
 					Write-Output "$OWNER_NAME"
 					Write-Output \$myvar
 					Write-Output "   "
 					Write-Output "<---------!!!!!!!!!!!!!----------->"
 					Write-Output "   "
+					Write-Output "my_sec_var"
+					
+					
 				""")
 				
 				echo "<----------------End of my code------------------->"
