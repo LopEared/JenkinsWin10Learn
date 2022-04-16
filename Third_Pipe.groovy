@@ -33,7 +33,7 @@ pipeline {
 					Write-Output "Hello, Mike! PowerShell is big POWER!!!"
 					
 									
-					Write-Output "${OWNER_NAME}"
+					Write-Output "\${OWNER_NAME}"
 					
 				""")
 				
