@@ -48,13 +48,6 @@ pipeline {
 					Write-Output "   "
 					Write-Output "$repository_link".Substring(45,21)
 					Write-Output "   "
-					pwd
-					Write-Output "   "
-					md "\$name_folder"
-					cd "\$name_folder"
-					pwd
-					Write-Output "   "
-					
 					
 				""")
 				
