@@ -44,7 +44,7 @@ pipeline {
 					\$myvar = "mika-pika"
 					\$my_sec_var = "$repository_link"	
 					\$my_thi_var =  "\$my_sec_var".Substring(45,21)
-					\$name_folder = "$repository_link".Substring(45,21)
+					\$name_folder = "$ReportRepository".Substring(45,21)
 					Write-Output "$OWNER_NAME"
 					Write-Output \$myvar
 					Write-Output "   "
