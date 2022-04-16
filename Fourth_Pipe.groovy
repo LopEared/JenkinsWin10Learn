@@ -9,7 +9,15 @@ pipeline {
 		WORKSPACE           = "${env.WORKSPACE}"
 		repository_link 	= "https://code.waters.com/bitbucket/scm/infnsd/patch-testing-results.git"
     }
-
+	
+	
+	parameters {
+		string(name: 'ReportRepository', defaultValue: 'https://code.waters.com/bitbucket/scm/infnsd/patch-testing-results.git', description: 'Repository to store final reports', )
+        string(name: 'ReportBranchName', defaultValue: 'master', description: 'Repository branch to store final reports', )
+	}
+	
+	
+	
     stages {
         stage('1-Build') {
             steps {
