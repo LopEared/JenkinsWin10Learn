@@ -46,7 +46,8 @@ pipeline {
 					Write-Output "\$my_thi_var"
 					Write-Output "   "
 					Write-Output "$repository_link".Substring(45,21)
-					
+					Write-Output "   "
+					pwd
 					
 				""")
 				
