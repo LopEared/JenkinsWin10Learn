@@ -34,13 +34,16 @@ pipeline {
 					Write-Output "Hello, Mike! PowerShell is big POWER!!!"
 					
 					\$myvar = "mika-pika"
-					\$my_sec_var = "$repository_link"				
+					\$my_sec_var = "$repository_link"	
+					\$my_thi_var =  "\$my_sec_var".Substring(45,21) 
 					Write-Output "$OWNER_NAME"
 					Write-Output \$myvar
 					Write-Output "   "
 					Write-Output "<---------!!!!!!!!!!!!!----------->"
 					Write-Output "   "
 					Write-Output "\$my_sec_var"
+					Write-Output "   "
+					Write-Output "\$my_thi_var"
 					
 					
 				""")
