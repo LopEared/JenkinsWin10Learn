@@ -58,8 +58,8 @@ pipeline {
 					Write-Output "   "
 					pwd
 					Write-Output "   "
-					md "\$name_folder\\${ReportBranchName}"
-					cd "\$name_folder\\${ReportBranchName}"
+					md "$ReportRepository".Substring(45,21)
+					cd "$ReportRepository".Substring(45,21)
 					Write-Output "   "
 					pwd
 					
