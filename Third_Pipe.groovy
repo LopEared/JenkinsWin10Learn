@@ -32,7 +32,7 @@ pipeline {
 				echo powershell(returnStdout: true, script:"""
 					Write-Output "Hello, Mike! PowerShell is big POWER!!!"
 					
-					\$var_output = "${OWNER_NAME}"
+					\$var_output = "\${OWNER_NAME}"
 					
 					Write-Output "$var_output"
 					
