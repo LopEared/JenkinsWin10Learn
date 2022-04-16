@@ -36,6 +36,9 @@ pipeline {
 									
 					Write-Output "$OWNER_NAME"
 					Write-Output \$myvar
+					Write-Output "   "
+					Write-Output "<---------!!!!!!!!!!!!!----------->"
+					Write-Output "   "
 				""")
 				
 				echo "<----------------End of my code------------------->"
