@@ -34,7 +34,7 @@ pipeline {
 					
 					\$var_output = \${OWNER_NAME}
 					
-					Write-Output \$
+					Write-Output "$var_output"
 					
 					
 					
