@@ -58,8 +58,8 @@ pipeline {
 					Write-Output "   "
 					pwd
 					Write-Output "   "
-					md "\$name_folder"
-					cd "\$name_folder"
+					md "\$name_folder\\${ReportBranchName}"
+					cd "\$name_folder\\${ReportBranchName}"
 					Write-Output "   "
 					pwd
 					
