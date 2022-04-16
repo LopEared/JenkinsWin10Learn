@@ -44,6 +44,8 @@ pipeline {
 					Write-Output "\$my_sec_var"
 					Write-Output "   "
 					Write-Output "\$my_thi_var"
+					Write-Output "   "
+					Write-Output "$repository_link".Substring(45,21)
 					
 					
 				""")
