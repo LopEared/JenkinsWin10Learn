@@ -40,7 +40,7 @@ pipeline {
 					Write-Output "   "
 					Write-Output "<---------!!!!!!!!!!!!!----------->"
 					Write-Output "   "
-					Write-Output "my_sec_var"
+					Write-Output "$my_sec_var"
 					
 					
 				""")
