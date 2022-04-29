@@ -57,7 +57,7 @@ def specificDate() {
             ws("C:\\mike_builder\\Git") {
                 def monthYear = (new Date()).format("MM.YYYY");
                 def date = (new Date()).format("dd.MM.YYYY");
-		def repoFolder = ${ReportRepository}.substring(4,8);
+		def repoFolder = "${ReportRepository}".substring(4,8);
 		    
                 echo powershell(returnStdout: true, script:"""
                 md "${monthYear}\\${date}\\${BUILD_NUMBER}"
