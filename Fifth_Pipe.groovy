@@ -94,7 +94,7 @@ def specificDate() {
     // printEdge();
     // println(date);
     
-    stage('Print text'){
+    stage('Training stage'){
         node("master"){
             echo "This is my first  comment in groovy-lesson!"
             echo powershell(returnStdout: true, script:"""
@@ -106,7 +106,9 @@ def specificDate() {
                 def date = (new Date()).format("dd.MM.YYYY")
                 echo powershell(returnStdout: true, script:"""
                 md "${monthYear}\\${date}\\${BUILD_NUMBER}"
-                dir
+                md "${appName}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
+		cd "${appName}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
+		pwd
                 """)   
             }
         }
