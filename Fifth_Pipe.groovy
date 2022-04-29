@@ -55,7 +55,12 @@ def specificDate() {
 		def repoFolder = "${ReportRepository}".substring(45,65);
 		echo "This is output for my variable:"
 		echo repoFolder
-		    
+		
+		echo powershell(returnStdout: true, script:"""
+                md "${appName}\\${repoFolder}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
+		cd "${appName}\\${repoFolder}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
+		pwd
+		""")      
  
             }
         }
