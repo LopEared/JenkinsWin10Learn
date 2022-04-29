@@ -60,12 +60,9 @@ def specificDate() {
 		def repoFolder = "${ReportRepository}".substring(4,8);
 		    
                 echo powershell(returnStdout: true, script:"""
-                md "${monthYear}\\${date}\\${BUILD_NUMBER}"
                 md "${appName}\\${repoFolder}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
 		cd "${appName}\\${repoFolder}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
 		pwd
-		Copy-Item -Path "C:\\test_file.txt" -Destination "C:\\mike_builder\\Git\\${repoFolder}\\${appName}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
-                dir
 		""")   
             }
         }
