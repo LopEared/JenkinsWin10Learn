@@ -55,14 +55,15 @@ def specificDate() {
             """)
             
             ws("C:\\mike_builder\\Git") {
-                def monthYear = (new Date()).format("MM.YYYY")
-                def date = (new Date()).format("dd.MM.YYYY")
+                def monthYear = (new Date()).format("MM.YYYY");
+                def date = (new Date()).format("dd.MM.YYYY");
+		def repoFolder = ${ReportRepository}.substring(4,8));
                 echo powershell(returnStdout: true, script:"""
                 md "${monthYear}\\${date}\\${BUILD_NUMBER}"
-                md "${appName}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
-		cd "${appName}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
+                md "${appName}\\${repoFolder}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
+		cd "${appName}\\${repoFolder}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
 		pwd
-		Copy-Item -Path "C:\\test_file.txt" -Destination "C:\\mike_builder\\Git\\${appName}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
+		Copy-Item -Path "C:\\test_file.txt" -Destination "C:\\mike_builder\\Git\\${repoFolder}\\${appName}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
                 dir
 		""")   
             }
