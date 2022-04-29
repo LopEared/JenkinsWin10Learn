@@ -58,12 +58,10 @@ def specificDate() {
                 def monthYear = (new Date()).format("MM.YYYY");
                 def date = (new Date()).format("dd.MM.YYYY");
 		def repoFolder = "${ReportRepository}".substring(4,8);
+		echo "This is output for my variable:"
+		echo repoFolder
 		    
-                echo powershell(returnStdout: true, script:"""
-                md "${appName}\\${repoFolder}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
-		cd "${appName}\\${repoFolder}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
-		pwd
-		""")   
+ 
             }
         }
     }
