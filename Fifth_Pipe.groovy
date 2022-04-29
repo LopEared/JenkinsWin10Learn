@@ -60,6 +60,7 @@ def specificDate() {
                 md "${appName}\\${repoFolder}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
 		cd "${appName}\\${repoFolder}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
 		pwd
+		Copy-Item -Path "C:\\test_file.txt" -Destination "C:\\mike_builder\\Git\\${appName}\\${repoFolder}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
 		""")      
  
             }
