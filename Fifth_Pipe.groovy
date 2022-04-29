@@ -52,7 +52,7 @@ def specificDate() {
             ws("C:\\mike_builder\\Git") {
                 def monthYear = (new Date()).format("MM.YYYY");
                 def date = (new Date()).format("dd.MM.YYYY");
-		def repoFolder = "${ReportRepository}".substring(46,65);
+		def repoFolder = "${ReportRepository}".substring(45,65);
 		echo "This is output for my variable:"
 		echo repoFolder
 		    
