@@ -57,7 +57,10 @@ def specificDate() {
 		echo repoFolder
 		printEdge()
 		echo powershell(returnStdout: true, script:"""
-                md "${appName}\\${repoFolder}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
+                echo "$ReportRepository".Substring(45,21)
+		echo "<----->"
+		echo "${repoFolder}"
+		md "${appName}\\${repoFolder}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
 		pwd
 		Copy-Item -Path "C:\\mike_builder\\Git\\testfile.txt" -Destination "C:\\mike_builder\\Git\\${appName}"
 		""")      
