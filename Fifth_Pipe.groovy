@@ -41,16 +41,7 @@ def CheckPrinter() {
 	echo powershell(returnStdout: true, script:"""
 	
 	echo "Disable Windows smartScreen scan"
-	new-itemproperty "HKLM:\\Software\\Policies\\Microsoft\\Windows\\System" -Name EnableSmartScreen -Value 0 -Type DWORD -Force
-	new-itemproperty "HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\" -Name SmartScreenEnabled -Value Off -Type String -Force
-	echo "Disable windows Firewall"
-	Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
-	echo "Disable Windows Defender "
-	Set-MpPreference -DisableRealtimeMonitoring \$true
-	echo "Set print NuGenesis UNIFY 8.0 as Default printer"
-	\$MYPRINTER = "NuGenesis UNIFY 8.0" 
-	\$PRINTERTMP = (Get-CimInstance -ClassName CIM_Printer | WHERE {\$_.Name -eq \$MYPRINTER}[0])
-	\$PRINTERTMP | Invoke-CimMethod -MethodName SetDefaultPrinter | Out-Host           
+	  
             """)
 
 }
