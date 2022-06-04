@@ -38,12 +38,13 @@ def printEdge() {
 }
 def CheckPrinter() {
 	echo "<-------------------!!!!!CHECK PRINTER!!!!!------------------------->"
-	echo powershell(returnStdout: true, script:"""
-	
-	echo "Disable Windows smartScreen scan"
-	  
-            """)
-
+	stage('Check printer settings'){
+		node("master"){
+			echo powershell(returnStdout: true, script:"""
+				echo "Disable Windows smartScreen scan"
+			""")
+		}
+	}
 }
 
 
