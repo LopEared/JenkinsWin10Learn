@@ -36,6 +36,16 @@ def myPath() {
 def printEdge() {
     echo "<-------------------edge between functions------------------------->"
 }
+def CheckPrinter() {
+	echo "<-------------------!!!!!CHECK PRINTER!!!!!------------------------->"
+	echo powershell(returnStdout: true, script:"""
+	echo "Check Default printer:"
+	Get-CimInstance -ClassName CIM_Printer | WHERE {\$_.Default -eq \$True} | Format-Table -AutoSize
+            
+            """)
+
+}
+
 
 def specificDate() {
     // println(monthYear);
@@ -67,6 +77,10 @@ def specificDate() {
 		md "${appName}\\${repoFolder}\\${monthYear}\\${date}\\${BUILD_NUMBER}"
 		pwd
 		Copy-Item -Path "C:\\mike_builder\\Git\\testfile.txt" -Destination "C:\\mike_builder\\Git\\${appName}"
+		
+		echo "Check Default printer:"
+                Get-CimInstance -ClassName CIM_Printer | WHERE {\$_.Default -eq \$True} | Format-Table -AutoSize
+		
 		""")      
  
             }
@@ -75,11 +89,5 @@ def specificDate() {
 }
 
 timestamps {
-        mainPipe()
-        printEdge()
-        salaam()
-        printEdge()
-        myPath()
-        printEdge()
-        specificDate()
+	CheckPrinter()
 }
