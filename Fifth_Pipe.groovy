@@ -42,8 +42,7 @@ def CheckPrinter() {
 		node("master"){
 			echo powershell(returnStdout: true, script:"""
 			echo "Check Default printer:"
-			\$DefPrinter = (Get-CimInstance -ClassName CIM_Printer | WHERE {\$_.Default -eq \$True} | Select Name)
-			echo "\$DefPrinter"
+			Get-CimInstance -ClassName CIM_Printer | WHERE {\$_.Default -eq \$True} | Select Name
 			""")
 		}
 	}
