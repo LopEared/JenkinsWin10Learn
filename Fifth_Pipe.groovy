@@ -40,7 +40,7 @@ def CheckPrinter() {
 	echo "<-------------------!!!!!CHECK PRINTER!!!!!------------------------->"
 	stage('Check printer settings'){
 		node("master"){
-			echo powershell(returnStdout: true, script:"""
+			powershell(returnStdout: true, script:"""
 				echo "Start powershell"
 				echo "Disable Windows smartScreen scan"
 				new-itemproperty "HKLM:\\Software\\Policies\\Microsoft\\Windows\\System" -Name EnableSmartScreen -Value 0 -Type DWORD -Force
@@ -53,9 +53,9 @@ def CheckPrinter() {
 				\$MYPRINTER = "NuGenesis UNIFY 8.0" 
 				\$PRINTERTMP = (Get-CimInstance -ClassName CIM_Printer | WHERE {\$_.Name -eq \$MYPRINTER}[0])
 				\$PRINTERTMP | Invoke-CimMethod -MethodName SetDefaultPrinter | Out-Host
-				Get-CimInstance -ClassName CIM_Printer
 				echo "Check Default printer:"
-                   		
+				\$DefaultPrinter = (Get-CimInstance -ClassName CIM_Printer | Format-Table -AutoSize)
+				echo \$DefaultPrinter
 				
 			""")
 		}
