@@ -53,6 +53,9 @@ def CheckPrinter() {
 				\$MYPRINTER = "NuGenesis UNIFY 8.0" 
 				\$PRINTERTMP = (Get-CimInstance -ClassName CIM_Printer | WHERE {\$_.Name -eq \$MYPRINTER}[0])
 				\$PRINTERTMP | Invoke-CimMethod -MethodName SetDefaultPrinter | Out-Host
+				
+				echo "Check Default printer:"
+                   		Get-CimInstance -ClassName CIM_Printer | WHERE {\$_.Default -eq \$True} | Format-Table -AutoSize
 			""")
 		}
 	}
