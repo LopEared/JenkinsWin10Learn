@@ -55,7 +55,9 @@ def CheckPrinter() {
 				\$PRINTERTMP | Invoke-CimMethod -MethodName SetDefaultPrinter | Out-Host
 				
 				echo "Check Default printer:"
-                   		Get-CimInstance -ClassName CIM_Printer | WHERE {\$_.Default -eq \$True} | Format-Table -AutoSize
+                   		
+				\$DefaultPrinter = (Get-CimInstance -ClassName CIM_Printer | WHERE {\$_.Default -eq \$True} | Format-Table -AutoSize)
+				echo \$DefaultPrinter
 			""")
 		}
 	}
